@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistem Udare Inteligent</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="card header">
+      <h1>Sistem Udare Inteligent</h1>
+      <p class="subtitle">Control automat și manual pentru grădina ta</p>
+    </div>
+
+    <div class="card controls-card">
+      <h2>Panoul de Control</h2>
+      
+      <div class="controls">
+        <button id="startBtn" class="btn-start">
+          🟢 Pornește Udarea
+        </button>
+        
+        <button id="stopBtn" class="btn-stop">
+          🔴 Oprește Udarea
+        </button>
+        
+        <button id="refreshBtn" class="btn-refresh">
+          🔄 Actualizează Istoric
+        </button>
+        
+        <button id="clearBtn" class="btn-clear">
+          🗑️ Șterge Istoricul
+        </button>
+      </div>
+      
+      <div id="status" class="status status-info">
+        Sistem pregătit pentru comenzi...
+      </div>
+    </div>
+
+    <div class="card logs-card">
+      <h2>
+        Istoric Udări
+        <span id="logsStats" class="logs-stats">0 evenimente</span>
+      </h2>
+      
+      <div class="logs-container" id="logsContainer">
+        <div class="loading">Se încarcă istoricul...</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
+
