@@ -10,8 +10,8 @@ const {
   oprireDeUrgenta,
   pinulGPIO 
 } = require('./controlPompa');
-
-console.log('Server cu GPIO 529 pornit...');
+ 
+console.log('Server pornit...');
 
 const app = express();
 app.use(express.static('public'));
