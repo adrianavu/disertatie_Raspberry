@@ -11,7 +11,7 @@ const {
   pinulGPIO,
 } = require("./controlPompa");
 
-console.log("Server cu GPIO 529 pornit...");
+console.log("Server pornit...");
 
 const app = express();
 app.use(express.static("public"));
@@ -20,7 +20,7 @@ app.get("/", (cerere, raspuns) => {
   raspuns.sendFile(__dirname + "/public/index.html");
 });
 
-app.get("/api/porneste", async (cerere, raspuns) => {
+app.post("/api/porneste", async (cerere, raspuns) => {
   console.log("START de pe WEB...");
 
   const rezultat = await pornestePompa(30000, "interfata WEB");
@@ -32,7 +32,7 @@ app.get("/api/porneste", async (cerere, raspuns) => {
   }
 });
 
-app.get("/api/opreste", async (cerere, raspuns) => {
+app.post("/api/opreste", async (cerere, raspuns) => {
   console.log("STOP de pe WEB...");
 
   const rezultat = await oprestePompa("interfata WEB manual");
@@ -74,10 +74,12 @@ initializeazaGPIO().then((succes) => {
     app.listen(3000, "0.0.0.0", () => {
       scriuJurnalul("SERVER cu GPIO 529 pornit pe portul 3000");
       console.log("Server: http://localhost:3000");
-      console.log("Sistem pregatit!");
+      console.log(`Folosesc GPIO ${pinulGPIO} (GPIO 17 fizic)`);
+      console.log("Timer: 30 secunde");
+      console.log("Sistem gata!");
     });
   } else {
-    console.log("Nu pot initializa GPIO - server nu porneste");
+    console.log("Nu poate fi initializat GPIO");
     process.exit(1);
   }
 });
