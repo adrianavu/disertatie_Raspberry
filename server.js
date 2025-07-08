@@ -72,7 +72,7 @@ process.on("SIGINT", async () => {
 initializeazaGPIO().then((succes) => {
   if (succes) {
     app.listen(3000, "0.0.0.0", () => {
-      scriuJurnalul("SERVER cu GPIO 529 pornit pe portul 3000");
+      scriuJurnalul("SERVER  pornit pe portul 3000");
       console.log("Server: http://localhost:3000");
       console.log(`Folosesc GPIO ${pinulGPIO} (GPIO 17 fizic)`);
       console.log("Timer: 30 secunde");
